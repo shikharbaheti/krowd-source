@@ -6,6 +6,8 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
         rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -44,7 +46,8 @@
                     </form>
                     <ul class="list-group list-group-flush">
                         {% for incident in incidents%}
-                        <li class="list-group-item"> {{ incident[1] }} <br>
+                        <li class="list-group-item">
+                            <p class="h4"> {{ incident[1] }} - {{incident[2] }} <i>votes</i></p>
                             <button type="button" class="btn btn-primary" onclick="upvote({{ incident[0] }})">
                                 <i class="fa fa-thumbs-o-up"></i></button>
                             <button type="button" class="btn btn-primary" onclick="downvote({{ incident[0] }})">
@@ -82,10 +85,13 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ url_for('static', filename = 'main.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOc4uTuRiQylcCIg1wGkisZWWmTM8TAN8&callback=initMap"
-        async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOc4uTuRiQylcCIg1wGkisZWWmTM8TAN8&callback=initMap"
+        async defer></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOc4uTuRiQylcCIg1wGkisZWWmTM8TAN8" async
+        defer></script>
     <script>
         function upvote(id) {
+            location.reload(true);
             $.post("{{ url_for('index') }}", {
                 is_up: true,
                 id: id

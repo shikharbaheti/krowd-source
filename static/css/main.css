@@ -47,3 +47,11 @@ body {
 	border-radius: 10px;
 	box-shadow: 2px 2px 2px white;
 }
+
+li {
+    font-family: 'Open Sans', sans-serif;
+}
+
+form {
+    font-family: 'Roboto', sans-serif;
+}

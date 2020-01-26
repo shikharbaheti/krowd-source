@@ -57,11 +57,3 @@ var x = document.getElementById("map");
 function getLocation() {
 
 }
-
-// var map;
-// function initMap() {
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: { lat: 55, lng: 44 },
-//         zoom: 8
-//     });
-// }
