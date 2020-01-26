@@ -9,7 +9,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="jquery-3.4.1.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -19,31 +18,34 @@
 </head>
 
 <body>
+    <img src="static\images\logo.png" align="center">
     <div id="wraper" class="container-fluid">
-        <nav class="navbar navbar-custom">
+
+        <!-- <nav class="navbar navbar-custom">
             <a class="navbar-brand" href="/">
                 <img src="/static/images/logo.png" width="80" height="50" alt="">
             </a>
-        </nav>
+        </nav> -->
 
-        <div class="row" class="container-fluid">
-            <div style="height: 700px;" class="col-8 container-fluid" id="map">
+        <div class="row" class="container-fluid" id="incident">
+            <div style="height: 850px;" class="col-8 container-fluid" id="map">
             </div>
             <div class="col-4">
-                <div class="card center" style="width: 18rem;">
+                <div id="incidents_card" class="card center container-fluid" style="width: auto;">
                     <form>
-                        Incident:<br>
+                        Incident:
+                        <br>
                         <input type="text" name="incident">
                         <br>
-                        Location:<br>
+                        Location:
+                        <br>
                         <input type="text" name="location">
                         <br>
                         <input type="submit" value="report">
                     </form>
                     <ul class="list-group list-group-flush">
-                        {% for incident in incidents%}
+                        <!-- {% for incident in incidents%}
                         <li id="{{ incident[1] }}" class="list-group-item"> {{ incident[0] }} <br>
-                            <<li id="1" class="list-group-item"> ok <br>
                                 <button type="button" class="btn btn-primary" onclick="upvote(this.id)"><i
                                         class="fas fa-thumbs-up"></i></button>
                                 <button type="button" class="btn btn-primary" onclick="downvote(this.id)"><i
@@ -51,15 +53,15 @@
                                 <button type="button" class="btn btn-success" onclick="location(this.id)"><i
                                         class="fa fa-home"></i></button>
                         </li>
-                        {% endfor %}
-
-                        <!-- <li id="1" class="list-group-item"> ok <br>
+                        {% endfor %} -->
+                        <li id="1" class="list-group-item"> ok <br>
                             <button type="button" class="btn btn-primary" onclick="upvote(this.id)"><i
-                                    class="fas fa-thumbs-up"></i></button>
+                                    class="fa fa-thumbs-o-up"></i></button>
                             <button type="button" class="btn btn-primary" onclick="downvote(this.id)"><i
-                                    class="fas fa-thumbs-down"></i></button>
+                                    class="fa fa-thumbs-o-down"></i></button>
                             <button type="button" class="btn btn-success" onclick="location(this.id)"><i
-                                    class="fa fa-home"></i></button></li> -->
+                                    class="fa fa-location-arrow"></i></button>
+                        </li>
 
                     </ul>
                 </div>
