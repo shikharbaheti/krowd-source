@@ -1,0 +1,11 @@
+html {
+    background-color: yellow;
+  }
+
+#main {
+    margin-top: 2rem;
+}
+
+.navbar-custom { 
+    background-color: orange; 
+} 
