@@ -34,18 +34,18 @@
             <div class="col-4">
                 <div class="card center" style="width: 18rem;">
                     <form style="margin:2rem">
-                        Incident:<br>
+                        <b>Incident</b>:<br>
                         <input type="text" name="incident">
                         <br>
-                        Location:<br>
+                        <b>Location</b>:<br>
                         <input type="text" name="location">
                         <br>
-                        <input type="submit" value="Report">
+                        <input type="submit" value="Report" class="btn">
                     </form>
                     <ul class="list-group list-group-flush">
                         {% for incident in incidents%}
                         <li class="list-group-item"> {{ incident[1] }} <br>
-                            <button type="button" class="btn btn-primary" onclick="upvote({{ incident[0] }});">
+                            <button type="button" class="btn btn-primary" onclick="upvote({{ incident[0] }})">
                                 <i class="fa fa-thumbs-o-up"></i></button>
                             <button type="button" class="btn btn-primary" onclick="downvote({{ incident[0] }})">
                                 <i class="fa fa-thumbs-o-down"></i></i></button>
