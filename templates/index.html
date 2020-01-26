@@ -39,7 +39,7 @@
                     </form>
                     <ul class="list-group list-group-flush">
                         {% for incident in incidents%}
-                        <li id="{{ incident[1] }}" class="list-group-item">{{ incident[0] }}<button type="button"
+                        <li id="{{ incident[1] }}" class="list-group-item"> {{ incident[0] }} <button type="button"
                                 class="btn btn-danger" onclick="upvote()">Upvote</button><button type="button"
                                 class="btn btn-primary" onclick="downvote()">Downvote</button><button type="button"
                                 class="btn btn-success" onclick="location()">Location</button></li>
