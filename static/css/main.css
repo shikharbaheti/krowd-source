@@ -1,0 +1,28 @@
+#main {
+    margin-top: 2rem;
+}
+
+.navbar-custom { 
+    background-color: orange; 
+} 
+
+body {
+    background-color: black;
+}
+
+html {
+    margin: 2em;
+    background-color: black;
+}
+
+body {
+    background-color: black;
+}
+
+#incident {
+    background-color: orange;
+}
+
+#incidents_card {
+    margin-top: 2rem;
+}
