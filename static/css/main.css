@@ -1,28 +1,49 @@
 #main {
     margin-top: 2rem;
+    background-color: #1F1F1F;
 }
 
 .navbar-custom { 
-    background-color: orange; 
+    background-color: #1F1F1F; 
 } 
 
 body {
-    background-color: black;
+    background-color:  #1F1F1F;
 }
 
 html {
     margin: 2em;
-    background-color: black;
+    background-color: #1F1F1F;
 }
 
 body {
-    background-color: black;
+    background-color: #1F1F1F;
 }
 
 #incident {
-    background-color: orange;
+    background-color: #1F1F1F;
 }
 
 #incidents_card {
-    margin-top: 2rem;
+    /*margin-top: 2rem;*/
+    background-color: #EE8C3A;
+    border-radius: 10px;
+	box-shadow: 2px 2px 1px black;
+}
+
+#wraper{
+	background-color: #1F1F1F;
+}
+
+.container_fluid{
+	background-color: #1F1F1F;
+}
+
+#img_container{
+	background-color: #1F1F1F;
+}
+
+#map{
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px white;
 }
