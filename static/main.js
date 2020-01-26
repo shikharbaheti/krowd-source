@@ -26,21 +26,15 @@ function success(pos) {
     });
 }
 
-function location(id) {
-    var marker = new google.maps.Marker({
-        position: { lat: lati, lng: longi },
-        map: map,
-        title: 'Hello World!'
-    });
-    console.log("This was called as well.")
-}
+// function location(id) {
+//     var marker = new google.maps.Marker({
+//         position: { lat: lati, lng: longi },
+//         map: map,
+//         title: 'Hello World!'
+//     });
+//     console.log("This was called as well.")
+// }
 
-
-
-
-function downvote(id) {
-
-}
 
 
 
