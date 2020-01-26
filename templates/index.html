@@ -34,7 +34,7 @@
             <div class="col-4">
                 <div class="card center" style="width: 18rem;">
                     <form style="margin:2rem">
-                        <form name="frm1" method="post" onsubmit="return report()">
+                        <form name="report" method="post" onsubmit="report(incident_actual, location_actual)">
                             <b>Incident</b>:<br>
                             <input type="text" name="incident_actual">
                             <b>Location</b>:<br>
@@ -96,6 +96,11 @@
                 is_up: false,
                 id: id
             });
+        }
+
+        function report(incident, location) {
+            alert(incident);
+            alert(location);
         }
 
     </script>
