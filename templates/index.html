@@ -98,6 +98,9 @@
             });
             location.reload();
         }
+        function getRandomInt(min, max) {
+            return Math.random() * (max - min) + min;
+        }
         function downvote(id) {
             $.post("{{ url_for('index') }}", {
                 is_up: false,
@@ -106,8 +109,8 @@
             location.reload();
         }
         function marker(id) {
-            var upar = 30;
-            var neeche = -96;
+            var upar = getRandomInt(30.6055303, 30.6365303);
+            var neeche = getRandomInt(-96.3184457, -96.3584457);
             var position = { lat: upar, lng: neeche };
             var marker = new google.maps.Marker({
                 position: position,
@@ -115,6 +118,8 @@
                 title: 'MSC Free Food'
             });
         };
+
+
 
         function report() {
             $.post("{{ url_for('report') }}", {
