@@ -1,33 +1,68 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
-    getLocation();
-
 });
 
 function myFunction() {
     alert("Hello World")
 }
 
-var x = document.getElementById("location");
+navigator.geolocation.getCurrentPosition(success);
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-    console.log("This was called.")
-}
+var longi;
+var lati;
 
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-    console.log("This was called too.");
-}
+function success(pos) {
+    var crd = pos.coords;
 
-var map;
-function initMap() {
+    console.log('Your current position is:');
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+    longi = crd.longitude;
+    lati = crd.latitude;
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 50.2, lng: 50.3 },
-        zoom: 8
+        center: { lat: crd.latitude, lng: crd.longitude },
+        zoom: 14
     });
 }
+
+function marker() {
+    var marker = new google.maps.Marker({
+        position: { lat: lati, lng: longi },
+        map: map,
+        title: 'Hello World!'
+    });
+    console.log("This was called as well.")
+}
+
+
+function update() {
+    marker();
+    console.log("this was called")
+}
+
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//         x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+//     console.log("This was called.")
+//     longi = parseInt(position.coords.longitude, 10);
+//     lati = parseInt(position.coords.latitude, 10);
+//     console.log(lati);
+// }
+
+var x = document.getElementById("map");
+
+function getLocation() {
+
+}
+
+// var map;
+// function initMap() {
+//     map = new google.maps.Map(document.getElementById('map'), {
+//         center: { lat: 55, lng: 44 },
+//         zoom: 8
+//     });
+// }
