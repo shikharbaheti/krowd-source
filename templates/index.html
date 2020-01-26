@@ -44,16 +44,16 @@
                         <input type="submit" value="report">
                     </form>
                     <ul class="list-group list-group-flush">
-                        <!-- {% for incident in incidents%}
-                        <li id="{{ incident[1] }}" class="list-group-item"> {{ incident[0] }} <br>
-                                <button type="button" class="btn btn-primary" onclick="upvote(this.id)"><i
-                                        class="fas fa-thumbs-up"></i></button>
-                                <button type="button" class="btn btn-primary" onclick="downvote(this.id)"><i
-                                        class="fas fa-thumbs-down"></i></button>
-                                <button type="button" class="btn btn-success" onclick="location(this.id)"><i
-                                        class="fa fa-home"></i></button>
-                        </li>
-                        {% endfor %} -->
+
+                      {% for incident in incidents%}
+                        <li class="list-group-item"> {{ incident[1] }} <br>
+                            <button type="button" class="btn btn-primary" onclick="upvote({{ incident[0] }})"><i
+                                    class="fas fa-thumbs-up"></i></button>
+                            <button type="button" class="btn btn-primary" onclick="downvote({{ incident[0] }})"><i
+                                    class="fas fa-thumbs-down"></i></button>
+                            <button type="button" class="btn btn-success" onclick="location({{ incident[0] }})"><i
+                                    class="fa fa-home"></i></button>
+                      
                         <li id="1" class="list-group-item"> ok <br>
                             <button type="button" class="btn btn-primary" onclick="upvote(this.id)"><i
                                     class="fa fa-thumbs-o-up"></i></button>
@@ -75,9 +75,7 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
@@ -88,22 +86,17 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOc4uTuRiQylcCIg1wGkisZWWmTM8TAN8&callback=initMap"
         async defer></script>
     <script>
-        $.noConflict();
         function upvote(id) {
-            saveData = jQuery($.ajax({
-                type: 'POST',
-                url: "{{url_for('index')}}",
-                contentType: 'application/json',
-                data: { 'is_up': true, 'id': id }
-            }))
+            $.post("{{ url_for('index') }}", {
+                is_up: true,
+                id: id
+            });
         }
         function downvote(id) {
-            saveData = jQuery($.ajax({
-                type: 'POST',
-                url: "{{url_for('index')}}",
-                contentType: 'application/json',
-                data: { 'is_up': false, 'id': id }
-            }))
+            $.post("{{ url_for('index') }}", {
+                is_up: false,
+                id: id
+            });
         }
 
     </script>
