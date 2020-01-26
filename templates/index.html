@@ -36,27 +36,29 @@
             <div class="col-4">
                 <div class="card center" style="width: 18rem;">
                     <form style="margin:2rem">
-                        <form name="report" method="post" onsubmit="report(incident_actual, location_actual)">
+                        <form name="report" method="POST" action="">
                             <b>Incident</b>:<br>
-                            <input type="text" name="incident_actual">
+                            <input id="incident1" type="text" name="incident">
                             <b>Location</b>:<br>
-                            <input type="text" name="location_actual">
-                            <input type="submit" value="Submit" class="btn btn-success">
+                            <input id="location" type="text" name="location">
+                            <input type="submit" value="Submit" class="btn btn-success" onclick="report()">
+                            <button type="button" class="btn btn-danger" onclick="makeRed()"><i
+                                    class="fa fa-exclamation"></i></button>
                         </form>
                     </form>
-                    <ul class="list-group list-group-flush">
+                    <ul id="lists" class="list-group list-group-flush">
                         {% for incident in incidents%}
                         <li class="list-group-item">
                             <p class="h4"> {{ incident[1] }} - {{incident[2] }} <i>votes</i></p>
-                            <button type="button" class="btn btn-primary" onclick="upvote({{ incident[0] }})">
+                            <button type="button" id="makeOrange" class="btn btn-primary"
+                                onclick="upvote({{ incident[0] }})">
                                 <i class="fa fa-thumbs-o-up"></i></button>
                             <button type="button" class="btn btn-primary" onclick="downvote({{ incident[0] }})">
                                 <i class="fa fa-thumbs-o-down"></i></i></button>
-                            <button type="button" class="btn btn-success" onclick="location({{ incident[0] }})">
+                            <button type="button" class="btn btn-success" onclick="marker({{ incident[0] }})">
                                 <i class="fa fa-location-arrow"></i></button>
                         </li>
                         {% endfor %}
-
                         <!-- <li id="1" class="list-group-item"> ok <br>
                             <button type="button" class="btn btn-primary" onclick="upvote(this.id)"><i
                                     class="fas fa-thumbs-up"></i></button>
@@ -85,31 +87,46 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ url_for('static', filename = 'main.js') }}"></script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOc4uTuRiQylcCIg1wGkisZWWmTM8TAN8&callback=initMap"
-        async defer></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOc4uTuRiQylcCIg1wGkisZWWmTM8TAN8" async
-        defer></script>
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOc4uTuRiQylcCIg1wGkisZWWmTM8TAN8" async
+        defer></script> -->
     <script>
         function upvote(id) {
-            location.reload(true);
             $.post("{{ url_for('index') }}", {
                 is_up: true,
                 id: id
             });
+            location.reload();
         }
         function downvote(id) {
             $.post("{{ url_for('index') }}", {
                 is_up: false,
                 id: id
             });
+            location.reload();
         }
+        function marker(id) {
+            var upar = 30;
+            var neeche = -96;
+            var position = { lat: upar, lng: neeche };
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: 'MSC Free Food'
+            });
+        };
 
-        function report(incident, location) {
-            alert(incident);
-            alert(location);
+        function report() {
+            $.post("{{ url_for('report') }}", {
+                incident: document.getElementById('incident1').value,
+                location: document.getElementById('location').value
+            });
         }
 
     </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOc4uTuRiQylcCIg1wGkisZWWmTM8TAN8&callback=marker"
+        async defer></script>
 </body>
 
 

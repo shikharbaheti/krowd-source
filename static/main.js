@@ -25,35 +25,3 @@ function success(pos) {
         zoom: 14
     });
 }
-
-// function location(id) {
-//     var marker = new google.maps.Marker({
-//         position: { lat: lati, lng: longi },
-//         map: map,
-//         title: 'Hello World!'
-//     });
-//     console.log("This was called as well.")
-// }
-
-
-
-
-
-
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//     } else {
-//         x.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-//     console.log("This was called.")
-//     longi = parseInt(position.coords.longitude, 10);
-//     lati = parseInt(position.coords.latitude, 10);
-//     console.log(lati);
-// }
-
-var x = document.getElementById("map");
-
-function getLocation() {
-
-}
