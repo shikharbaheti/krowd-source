@@ -26,7 +26,7 @@ function success(pos) {
     });
 }
 
-function marker() {
+function location(id) {
     var marker = new google.maps.Marker({
         position: { lat: lati, lng: longi },
         map: map,
@@ -36,10 +36,15 @@ function marker() {
 }
 
 
-function update() {
-    marker();
-    console.log("this was called")
+
+
+function downvote(id) {
+
 }
+
+
+
+
 
 // function getLocation() {
 //     if (navigator.geolocation) {
