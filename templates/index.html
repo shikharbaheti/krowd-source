@@ -34,13 +34,13 @@
             <div class="col-4">
                 <div class="card center" style="width: 18rem;">
                     <form style="margin:2rem">
-                        <b>Incident</b>:<br>
-                        <input type="text" name="incident">
-                        <br>
-                        <b>Location</b>:<br>
-                        <input type="text" name="location">
-                        <br>
-                        <input type="submit" value="Report" class="btn">
+                        <form name="frm1" method="post" onsubmit="return report()">
+                            <b>Incident</b>:<br>
+                            <input type="text" name="incident_actual">
+                            <b>Location</b>:<br>
+                            <input type="text" name="location_actual">
+                            <input type="submit" value="Submit" class="btn btn-success">
+                        </form>
                     </form>
                     <ul class="list-group list-group-flush">
                         {% for incident in incidents%}

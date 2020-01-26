@@ -26,6 +26,10 @@ function success(pos) {
     });
 }
 
+function report() {
+
+}
+
 // function location(id) {
 //     var marker = new google.maps.Marker({
 //         position: { lat: lati, lng: longi },
