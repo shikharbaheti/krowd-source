@@ -63,7 +63,7 @@ def report():
     print("request added")
     print(request.form)
     incidents = pd.read_csv("incidents.csv")
-    location = str(request.form["location"])
+    # location = str(request.form["location"])
     incident = str(request.form["incident"])
     lat = 30.615530300000003
     lng = -96.33844570000001
